@@ -28,12 +28,13 @@ const useStyles = makeStyles((theme) => ({
 const LoginPage = () => {
 	const classes = useStyles()
 	const navigate = useNavigate()
-	const { setLoggedIn, setUser } = useLogin()
+	const { login, setUser } = useLogin()
 	const { control, handleSubmit } = useForm()
 
 	const onSubmit = (data) => {
 		console.log(data)
-		setLoggedIn(true)
+		login()
+
 		setUser(data)
 		navigate('/')
 	}

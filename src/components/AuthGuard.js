@@ -6,7 +6,7 @@ export function AuthGuard({ children }) {
 	let location = useLocation()
 	const { loggedIn } = useLogin()
 
-	if (!loggedIn) {
+	if (loggedIn) {
 		// Redirect them to the /login page, but save the current location they were
 		// trying to go to when they were redirected. This allows us to send them
 		// along to that page after they login, which is a nicer user experience
