@@ -13,14 +13,14 @@ const Index = () => {
 		<Layout>
 			<Routes>
 				<Route
-					path='/'
+					path='/dashboard'
 					element={
 						<AuthGuard>
 							<Dashboard />
 						</AuthGuard>
 					}
 				/>
-				<Route path='/login' element={<LoginPage />} />
+				<Route path='/' element={<LoginPage />} />
 				{/* <LoginPage handleLogin={onClick} /> */}
 			</Routes>
 		</Layout>

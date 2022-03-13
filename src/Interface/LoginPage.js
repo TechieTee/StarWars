@@ -36,7 +36,7 @@ const LoginPage = () => {
 		login()
 
 		setUser(data)
-		navigate('/')
+		navigate('/dashboard')
 	}
 
 	return (
