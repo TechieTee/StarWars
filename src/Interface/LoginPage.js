@@ -42,14 +42,14 @@ const LoginPage = () => {
 	return (
 		<FormWrapper>
 			<h3>Login</h3>
-			<h4>kkk</h4>
+			<h4>Kindly enter your details to log in</h4>
 			<form className={classes.root} onSubmit={handleSubmit(onSubmit)}>
 				<Controller
 					name='email'
 					control={control}
 					render={({ field: { onChange, value }, fieldState: { error } }) => (
 						<TextField
-							label='Email'
+							label='Email Address'
 							variant='outlined'
 							value={value}
 							defaultValue=''
@@ -88,21 +88,17 @@ const LoginPage = () => {
 				/>
 
 				<Button
-					// variant={varient}
 					type='submit'
-					// onClick={handleLogin}
-					// disabled={!values?.captureReason?.label}
+					variant='contained'
+					color={'primary'}
+					style={{ width: '110%' }}
 				>
 					Log In
 				</Button>
-
-				{/* <Button variant='outlined' href='../Interface/Dashboard.js'>
-					Log in
-				</Button> */}
-				<Button variant='text'>forgot password?</Button>
+				<h5>forgot your password?</h5>
 			</form>
 			<h6>
-				ssss<span>hh</span>ggggg
+				Privacy Policy <span>and</span> Terms of services
 			</h6>
 		</FormWrapper>
 	)
@@ -110,14 +106,52 @@ const LoginPage = () => {
 
 export default LoginPage
 const FormWrapper = styled.div`
-	position: absolute;
+	margin: auto;
+	margin-top: 155px;
 	width: 467px;
 	height: 564px;
-	left: 763px;
-	top: 209px;
-
 	background: #ffffff;
 	border: 1px solid rgba(164, 167, 183, 0.3);
 	box-sizing: border-box;
 	border-radius: 8px;
+	padding: 30px 80px;
+
+	h3 {
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 24px;
+		line-height: 32px;
+		color: #434854;
+		text-align: 'center';
+	}
+
+	h4 {
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 24px;
+		color: #737373;
+		margin: 0 0 40px 0;
+	}
+	h5 {
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 16px;
+		text-align: center;
+		color: #0a74dc;
+		h6 {
+			font-family: 'Inter';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 12px;
+			line-height: 20px;
+			text-align: center;
+			text-decoration-line: underline;
+			color: #303b54;
+		}
+	}
 `

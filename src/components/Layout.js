@@ -68,10 +68,10 @@ const Sidebar = styled.div`
 `
 const Main = styled.main`
 	position: fixed;
+	-webkit-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 	height: 100vh;
 	width: calc(100% - 270px);
-	margin-left: 135px;
+	margin-left: 270px;
 	overflow: auto;
-	${'' /* background-color: blue; */}
 `
