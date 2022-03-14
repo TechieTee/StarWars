@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import SideBar from './SideBar'
-import NavItems from './NavItems'
 
 const Index = ({ index, children }) => {
 	performance.mark('start')

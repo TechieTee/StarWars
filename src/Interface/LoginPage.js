@@ -6,8 +6,7 @@ import { makeStyles } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import { useForm, Controller } from 'react-hook-form'
-
-import NavItems from '../components/NavItems'
+import Logo from '../Images/Logo.png'
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -71,7 +70,9 @@ const LoginPage = () => {
 		<Container>
 			{/* <Sidebar style={{ width: `${width}px` }}> */}
 			<Sidebar>
-				<NavItems index={index} />
+				<ImgLogo>
+					<img src={Logo} alt='logo' />
+				</ImgLogo>
 
 				{/* <SideBar /> */}
 				{/* <SideBar
@@ -240,4 +241,18 @@ const Main = styled.main`
 	width: calc(100% - 270px);
 	margin-left: 270px;
 	overflow: auto;
+`
+const ImgLogo = styled.div`
+	width: 245px;
+	margin: auto;
+	margin-top: 335px;
+
+	left: 23px;
+
+	top: 330px;
+
+	img {
+		height: 100%;
+		width: 100%;
+	}
 `

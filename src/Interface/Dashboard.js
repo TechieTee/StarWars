@@ -5,15 +5,25 @@ import Card from '../components/CardWidget'
 import ImageProfile from '../components/ImageProfile'
 import Table from '../components/Table'
 import styled from 'styled-components'
+import Logo from '../Images/Logo.png'
 
-import { useNavigate } from 'react-router-dom'
+import { GridSmall, NavItemIcon } from '../Images/SvgIcons'
+
 import { useLogin } from '../shared/hooks/index'
 import { makeStyles } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import { useForm, Controller } from 'react-hook-form'
 
-import NavItems from '../components/NavItems'
+export const NavItem = ({ itemName, fill, path }) => {
+	return (
+		<Button startIcon={<NavItemIcon fill={fill} width='17px' height='16px' />}>
+			{/* <Link to={path}> */}
+			<ItemName>{itemName}</ItemName>
+			{/* </Link> */}
+		</Button>
+	)
+}
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -32,9 +42,27 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 }))
+const navItems = [
+	{ name: 'Startships', fill: '#A9C1FF', path: '/' },
+	{ name: 'People', fill: '#FFA9EC', path: '/foo' },
+	{ name: 'Species', fill: '#FDFFA9', path: '/about' },
+]
+class About extends React.Component {
+	componentDidMount() {
+		this.props.navigate('/')
+	}
+	render() {
+		return (
+			<div>
+				<h2>About - should redirect `/home`</h2>
+			</div>
+		)
+	}
+}
 
 const Index = () => {
 	const [index, setIndex] = useState(false)
+
 	const cardInfo = [
 		{
 			title: 'Films',
@@ -61,11 +89,40 @@ const Index = () => {
 			desc: '20 More than than yesterday',
 		},
 	]
+
 	return (
 		<Container>
 			{/* <Sidebar style={{ width: `${width}px` }}> */}
 			<Sidebar>
-				<NavItems index={index}></NavItems>
+				<>
+					<Img>
+						<img src={Logo} alt='logo' />
+					</Img>
+					<Action>
+						<Button
+							variant='contained'
+							startIcon={<GridSmall />}
+							color={'primary'}
+						>
+							OverView
+						</Button>
+					</Action>
+					<Nav>
+						{navItems.map((item) => (
+							<NavItem
+								itemName={item.name}
+								key={item}
+								fill={item.fill}
+								path={item.path}
+							/>
+						))}
+					</Nav>
+					{/* <Routes>
+						<Route path='/' element={'kakkkkkkkkkkkkkkkkkkkkkkkkkkkkkk'} />
+						<Route path='/foo' element={'kakkkkkkkkkkkkkkkkkkkkkkkkkkkkkk'} />
+						<Route path='/about' element={'kakkkkkkkkkkkkkkkkkkkkkkkkkkkkkk'} />
+					</Routes> */}
+				</>
 				{/* <SideBar /> */}
 				{/* <SideBar
 				ref={sideBarRef}
@@ -135,4 +192,52 @@ const Main = styled.main`
 	width: calc(100% - 270px);
 	margin-left: 270px;
 	overflow: auto;
+`
+
+const Img = styled.div`
+	width: 130px;
+	margin: auto;
+	margin-top: 35px;
+
+	img {
+		height: 100%;
+		width: 100%;
+	}
+`
+
+const Action = styled.div`
+	position: absolute;
+	width: 232px;
+	height: 48px;
+	left: 50px;
+	top: 149px;
+`
+
+const Nav = styled.div`
+	position: absolute;
+	width: 85px;
+	height: 24px;
+	left: 50px;
+	top: 250px;
+	color: #fff;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 75px;
+`
+const ItemName = styled.span`
+	position: absolute;
+	width: 85px;
+	height: 24px;
+	left: 50px;
+	top: -22px;
+	color: #fff;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 75px;
 `
