@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import InAppMenu from '../components/InAppMenu'
 import NavBar from '../components/NavBar'
 import Card from '../components/CardWidget'
@@ -16,6 +16,7 @@ import Button from '@material-ui/core/Button'
 // import { useForm, Controller } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import DashbordLayout from '../components/DashbordLayout'
+import useFetch from '../shared/hooks/useFetch'
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -34,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 }))
-
 
 const cardInfo = [
 	{
@@ -62,8 +62,59 @@ const cardInfo = [
 		desc: '20 More than than yesterday',
 	},
 ]
+const columns = [
+	{ field: 'title', headerName: 'Title', width: 130 },
+	{ field: 'release_date', headerName: 'Release Date', width: 130 },
+	{
+		field: 'director',
+		headerName: 'Director',
+		width: 160,
+	},
+	{
+		field: 'producer',
+		headerName: 'Producer',
+		description: 'This column has a value getter and is not sortable.',
+	},
+	{
+		field: 'episode_id',
+		headerName: 'Episode_Id',
+		description: 'This column has a value getter and is not sortable.',
+	},
+	{
+		field: 'characters',
+		headerName: 'Characters',
+		width: 160,
+	},
+]
+
 const Index = () => {
-	const [index, setIndex] = useState(false)
+	const [rowData, setRowData] = useState([])
+	const data = useFetch('https://swapi.dev/api/films')
+	useEffect(() => {
+		if (data) {
+			const filtered = data?.results.map((item, index) => {
+				const {
+					title,
+					release_date,
+					director,
+					producer,
+					episode_id,
+					characters,
+				} = item
+				return {
+					id: index,
+					title,
+					release_date,
+					director,
+					producer,
+					episode_id,
+					characters,
+				}
+			})
+			setRowData(filtered)
+		}
+	}, [data])
+	// console.log(data)
 
 	return (
 		<DashbordLayout>
@@ -80,7 +131,12 @@ const Index = () => {
 					))}
 				</CardWrapper>
 				{/* <ImageProfile /> */}
-				<Table />
+				<Table
+					{...{
+						columns,
+						rows: rowData,
+					}}
+				/>
 			</>
 		</DashbordLayout>
 	)

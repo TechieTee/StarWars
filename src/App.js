@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import LoginPage from './Pages/LoginPage'
@@ -8,8 +8,6 @@ import People from './Pages/People'
 import StarShips from './Pages/StarShips'
 import Species from './Pages/Species'
 
-export const GlobalConetxt = createContext({})
-
 function App() {
 	return (
 		<div>
@@ -18,33 +16,33 @@ function App() {
 					<Route
 						path='/'
 						element={
-							// <AuthGuard>
-							<Dashboard />
-							// </AuthGuard>
+							<AuthGuard>
+								<Dashboard />
+							</AuthGuard>
 						}
 					/>
 					<Route
 						path='/people'
 						element={
-							// <AuthGuard>
-							<People />
-							// </AuthGuard>
+							<AuthGuard>
+								<People />
+							</AuthGuard>
 						}
 					/>
 					<Route
 						path='/starships'
 						element={
-							// <AuthGuard>
-							<StarShips />
-							// </AuthGuard>
+							<AuthGuard>
+								<StarShips />
+							</AuthGuard>
 						}
 					/>
 					<Route
 						path='/species'
 						element={
-							// <AuthGuard>
-							<Species />
-							// </AuthGuard>
+							<AuthGuard>
+								<Species />
+							</AuthGuard>
 						}
 					/>
 					<Route path='/login' element={<LoginPage />} />

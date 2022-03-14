@@ -30,7 +30,7 @@ const LoginPage = () => {
 	const [index, setIndex] = useState(true)
 	const classes = useStyles()
 	const navigate = useNavigate()
-	const { login, setUser } = useLogin()
+	const { login, handleSetUser } = useLogin()
 	const { control, handleSubmit } = useForm()
 
 	performance.mark('start')
@@ -61,9 +61,8 @@ const LoginPage = () => {
 	const onSubmit = (data) => {
 		console.log(data)
 		login()
-
-		setUser(data)
-		navigate('/dashboard')
+		handleSetUser(data)
+		navigate('/')
 	}
 
 	return (

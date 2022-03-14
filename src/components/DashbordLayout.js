@@ -3,20 +3,12 @@ import styled from 'styled-components'
 import NavBar from '../components/NavBar'
 // import InAppMenu from '../components/InAppMenu'
 
-import Card from '../components/CardWidget'
-// import ImageProfile from '../components/ImageProfile'
-import Table from '../components/Table'
 import Logo from '../Images/Logo.png'
 
-import { GridSmall, NavItemIcon } from '../Images/SvgIcons'
-
-// import { useLogin } from '../shared/hooks/index'
-import { makeStyles } from '@material-ui/core'
-// import TextField from '@material-ui/core/TextField'
+import { GridSmall } from '../Images/SvgIcons'
 import Button from '@material-ui/core/Button'
-// import { useForm, Controller } from 'react-hook-form'
-import { Link } from 'react-router-dom'
 import NavItem from './NavItem'
+import { Link } from 'react-router-dom'
 
 const navItems = [
 	{ name: 'Startships', fill: '#A9C1FF', path: '/starships' },
@@ -33,12 +25,10 @@ function DashbordLayout({ children }) {
 						<img src={Logo} alt='logo' />
 					</Img>
 					<Action>
-						<Button
-							variant='contained'
-							startIcon={<GridSmall />}
-							color={'primary'}
-						>
-							OverView
+						<Button startIcon={<GridSmall />}>
+							<Link to={'/'}>
+								<ItemName>OverView</ItemName>
+							</Link>
 						</Button>
 					</Action>
 					<Nav>
@@ -133,6 +123,20 @@ const Nav = styled.div`
 	height: 24px;
 	left: 50px;
 	top: 250px;
+	color: #fff;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 75px;
+`
+const ItemName = styled.span`
+	position: absolute;
+	width: 85px;
+	height: 24px;
+	left: 50px;
+	top: -22px;
 	color: #fff;
 
 	font-family: 'Inter';
