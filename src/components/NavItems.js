@@ -6,13 +6,13 @@ import { GridSmall, NavItemIcon } from '../Images/SvgIcons'
 
 export const NavItem = ({ itemName, fill }) => {
 	return (
-		<Button startIcon={<NavItemIcon fill={fill} />}>
+		<Button startIcon={<NavItemIcon fill={fill} width='17px' height='16px' />}>
 			<ItemName>{itemName}</ItemName>
 		</Button>
 	)
 }
 
-const Index = () => {
+const Index = ({ index }) => {
 	const navItems = [
 		{ name: 'Startships', fill: '#A9C1FF' },
 		{ name: 'People', fill: '#FFA9EC' },
@@ -20,29 +20,55 @@ const Index = () => {
 	]
 	return (
 		<>
-			<Img>
-				<img src={Logo} alt='logo' />
-			</Img>
-			<Action>
-				<Button variant='contained' startIcon={<GridSmall />} color={'primary'}>
-					OverView
-				</Button>
-			</Action>
-			<Nav>
-				{navItems.map((item) => (
-					<NavItem itemName={item.name} key={item} fill={item.fill} />
-				))}
-			</Nav>
+			{index ? (
+				<ImgLogo>
+					<img src={Logo} alt='logo' />
+				</ImgLogo>
+			) : (
+				<>
+					<Img>
+						<img src={Logo} alt='logo' />
+					</Img>
+					<Action>
+						<Button
+							variant='contained'
+							startIcon={<GridSmall />}
+							color={'primary'}
+						>
+							OverView
+						</Button>
+					</Action>
+					<Nav>
+						{navItems.map((item) => (
+							<NavItem itemName={item.name} key={item} fill={item.fill} />
+						))}
+					</Nav>
+				</>
+			)}
 		</>
 	)
 }
 export default Index
+const ImgLogo = styled.div`
+	width: 245px;
+	margin: auto;
+	margin-top: 335px;
+
+	left: 23px;
+
+	top: 330px;
+
+	img {
+		height: 100%;
+		width: 100%;
+	}
+`
+
 const Img = styled.div`
-	position: absolute;
-	width: 150px;
-	height: 65px;
-	left: 50px;
-	top: 35px;
+	width: 130px;
+	margin: auto;
+	margin-top: 35px;
+
 	img {
 		height: 100%;
 		width: 100%;

@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
 import LoginPage from './LoginPage'
-import Layout from '../components/Layout'
 import { AuthGuard } from '../components/AuthGuard'
 import Dashboard from './Dashboard'
+
+import Layout from '../components/Layout'
 
 const Index = () => {
 	// const [showDashboard, setShowDashboard] = useState(true)

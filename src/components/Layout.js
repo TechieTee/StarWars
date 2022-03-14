@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import SideBar from './SideBar'
+import NavItems from './NavItems'
 
-const Index = ({ home, children }) => {
+const Index = ({ index, children }) => {
 	performance.mark('start')
 	const [width, setWidth] = useState(270)
 	const [drawer, setDrawer] = useState(false)
+	const [login, setLogin] = useState(true)
 	const sideBarRef = useRef()
 
 	const handleClick = () => {
@@ -27,26 +29,7 @@ const Index = ({ home, children }) => {
 		}
 	}, [drawer])
 
-	return (
-		<Container>
-			{/* <Sidebar style={{ width: `${width}px` }}> */}
-			<Sidebar>
-				<SideBar index={home === true ? <div>l</div> : <div>bbb</div>} />
-				{/* <SideBar
-					ref={sideBarRef}
-					links={links}
-					handleClick={handleClick}
-					width={width}
-					drawer={drawer}
-				/> */}
-			</Sidebar>
-			{/* <Main style={{ width: `calc(100% - ${width}px)`, left: `${width}px` }}> */}
-			<Main>
-				{children}
-				{/* <InAppMenu /> */}
-			</Main>
-		</Container>
-	)
+	return <Container>{children}</Container>
 }
 export default Index
 

@@ -1,10 +1,6 @@
 import React from 'react'
-import NavBar from './NavBar'
-import Card from './CardWidget'
-import ImageProfile from './ImageProfile'
-import Form from '../Interface/LoginPage'
-import Table from './Table'
 
+import Form from '../Interface/LoginPage'
 const Index = () => {
 	// const CardWidgetData = [
 	// 	{
@@ -24,14 +20,6 @@ const Index = () => {
 	// 		label: 'PIE',
 	// 	},
 	// ]
-	return (
-		<>
-			{' '}
-			<NavBar />
-			<Card />
-			{/* <ImageProfile /> */}
-			<Table />
-		</>
-	)
+	return <> </>
 }
 export default Index

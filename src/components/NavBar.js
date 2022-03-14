@@ -1,5 +1,11 @@
 import React from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
+import {
+	NotificationIcon,
+	LineIcon,
+	ProfileIcon,
+	BreadCrumbIcon,
+} from '../Images/SvgIcons'
 
 const Index = () => {
 	return (
@@ -13,12 +19,21 @@ const Index = () => {
 						style={{ maxHeight: '100px' }}
 						navbarScroll
 					></Nav>
-					<Nav.Link href='#action1'>Home</Nav.Link>
-					<Nav.Link href='#action2'>Link</Nav.Link>
-					<Nav.Link href='#' disabled>
-						Link
+					<Nav.Link href='#action1'>
+						<NotificationIcon />
 					</Nav.Link>
-					ok
+					<Nav.Link href='#action2'>
+						<LineIcon />
+					</Nav.Link>
+					<Nav.Link href='#' disabled>
+						<ProfileIcon />
+					</Nav.Link>
+					<Nav.Link href='#' disabled>
+						Fatima Bello
+					</Nav.Link>
+					<Nav.Link href='#' disabled>
+						<BreadCrumbIcon />
+					</Nav.Link>
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>

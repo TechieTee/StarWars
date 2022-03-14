@@ -1,15 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
+import { NavItemIcon } from '../Images/SvgIcons'
 
-const Index = () => {
+const Index = ({ cardTitle, fill, number, desc }) => {
 	return (
 		<Card>
 			<Title>
-				<H3>Films</H3> <span></span>{' '}
+				<H3>{cardTitle}</H3>{' '}
+				<span>
+					<NavItemIcon fill={fill} width='17px' height='16px' />
+				</span>{' '}
 			</Title>
 			<Details>
-				<H3>200</H3>
-				<p>20 More than than yesterday</p>
+				<H3>{number}</H3>
+				<p>{desc}</p>
 			</Details>
 		</Card>
 	)
@@ -18,22 +22,22 @@ export default Index
 
 const Card = styled.div`
 	background: #ffffff;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 	border-radius: 10px;
-	width: 208px;
-	height: 130px;
+	width: 240px;
+	height: 155px;
 	padding: 15px 20px;
 `
 const Title = styled.div`
 	display: grid;
 	grid-template-columns: 80% 20%;
-	margin-bottom: 23px;
+	margin-bottom: 40px;
 
 	span {
 		margin: auto;
 		width: 27px;
 		height: 26px;
-		background: #a9ffe0;
+
 		border-radius: 5px;
 	}
 `
@@ -45,7 +49,7 @@ const Details = styled.div`
 		font-weight: 500;
 		font-size: 11px;
 		color: #00992b;
-		margin-top: -14px;
+		margin-top: -5px;
 	}
 `
 const H3 = styled.h3`
