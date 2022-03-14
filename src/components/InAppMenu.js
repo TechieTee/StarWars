@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Form from '../Interface/LoginPage'
+import Form from '../Pages/LoginPage'
 const Index = () => {
 	// const CardWidgetData = [
 	// 	{
