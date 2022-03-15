@@ -12,12 +12,12 @@ import { useForm, Controller } from 'react-hook-form'
 
 const LoginPage = () => {
 	const navigate = useNavigate()
-	const { logIn, handleSetUser } = useLogin()
+	const { login, handleSetUser } = useLogin()
 	const { control, handleSubmit } = useForm()
 
 	const onSubmit = (data) => {
 		console.log(data)
-		logIn()
+		login()
 		handleSetUser(data)
 		navigate('/')
 	}

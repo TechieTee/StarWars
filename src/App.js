@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AuthGuard } from './components/AuthGuard'
-import Login from './Pages/LoginPage'
+import LoginPage from './Pages/LoginPage'
 import Dashboard from './Pages/Dashboard'
 import People from './Pages/People'
 import StarShips from './Pages/StarShips'
@@ -14,7 +14,7 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route
-						path='/'
+						path='/dashboard'
 						element={
 							<AuthGuard>
 								<Dashboard />
@@ -77,14 +77,7 @@ function App() {
 							</AuthGuard>
 						}
 					/>
-					<Route
-						path='/login'
-						element={
-							<AuthGuard>
-								<Login />
-							</AuthGuard>
-						}
-					/>
+					<Route path='/' element={<LoginPage />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

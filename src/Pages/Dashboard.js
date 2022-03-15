@@ -36,10 +36,7 @@ const Dashboard = () => {
 			setRowData(filtered)
 		}
 	}, [data])
-	function onRowClick(data) {
-		console.log(`You clicked on the row ${data.username} ${data.score}`)
-		alert(`You clicked on the row ${data.username} ${data.score}`)
-	}
+
 	return (
 		<AppLayout>
 			<CardWrapper>
