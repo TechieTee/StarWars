@@ -19,7 +19,7 @@ const LoginPage = () => {
 		console.log(data)
 		login()
 		handleSetUser(data)
-		navigate('/')
+		navigate('/dashboard')
 	}
 
 	return (

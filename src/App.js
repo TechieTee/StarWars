@@ -14,7 +14,7 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route
-						path='/'
+						path='/dashboard'
 						element={
 							<AuthGuard>
 								<Dashboard />
@@ -77,7 +77,7 @@ function App() {
 							</AuthGuard>
 						}
 					/>
-					<Route path='/login' element={<LoginPage />} />
+					<Route path='/' element={<LoginPage />} />
 				</Routes>
 			</BrowserRouter>
 		</div>
