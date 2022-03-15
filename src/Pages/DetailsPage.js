@@ -1,17 +1,26 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
+import AppLayout from '../components/AppLayout'
 import profileImg from '../Images/image6.png'
+import useFetch from '../shared/hooks/useFetch'
 
 const Index = () => {
+	const location = useLocation()
+	console.log(location)
+	const data = useFetch(`https://swapi.dev/api${location.pathname}`)
+	console.log(data);
 	return (
-		<ImageProfile>
-			<img src={profileImg} alt='profileImg' />
-			<div>
-				<h3>Cover</h3> <p>Director: Kingsley Omin</p>
-				<p>Producer: Kingsley Omin</p>
-				<p>Release Date: January 24, 2022.</p>
-			</div>
-		</ImageProfile>
+		<AppLayout>
+			<ImageProfile>
+				<img src={profileImg} alt='profileImg' />
+				<div>
+					<h3>Cover</h3> <p>Director: Kingsley Omin</p>
+					<p>Producer: Kingsley Omin</p>
+					<p>Release Date: January 24, 2022.</p>
+				</div>
+			</ImageProfile>
+		</AppLayout>
 	)
 }
 export default Index

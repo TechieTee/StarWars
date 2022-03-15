@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 export function useLogin() {
-	const [loggedIn, setLoggedIn] = useState(
-		Boolean(localStorage.getItem('user')) || false,
-	)
-	const [user, setUser] = useState(
-		JSON.parse(localStorage.getItem('user')) || {},
-	)
-	const login = () => {
+	const lIn = Boolean(localStorage.getItem('loggedIn')) || false
+	const authUser = JSON.parse(localStorage.getItem('user')) || {}
+	const [loggedIn, setLoggedIn] = useState(lIn)
+	const [user, setUser] = useState(authUser)
+
+	const logIn = () => {
 		setLoggedIn(true)
 		localStorage.setItem('loggedIn', 'true')
 	}
+
 	const logOut = () => {
 		setLoggedIn(false)
 		localStorage.removeItem('loggedIn')
@@ -22,11 +22,12 @@ export function useLogin() {
 		setUser(data)
 		localStorage.setItem('user', JSON.stringify(data))
 	}
-	console.log(loggedIn, user)
+
 	return {
 		loggedIn,
-		login,
+		logIn,
 		user,
 		handleSetUser,
+		logOut,
 	}
 }

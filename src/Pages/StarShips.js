@@ -1,33 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import DashbordLayout from '../components/DashbordLayout'
+import AppLayout from '../components/AppLayout'
 import Table from '../components/Table'
 import useFetch from '../shared/hooks/useFetch'
-const columns = [
-	{ field: 'name', headerName: 'Name', width: 130 },
-	{ field: 'model', headerName: 'Model', width: 130 },
-	{
-		field: 'starship_class',
-		headerName: 'Class',
-		width: 160,
-	},
-	{
-		field: 'passengers',
-		headerName: 'Passengers',
-		description: 'This column has a value getter and is not sortable.',
-	},
-	{
-		field: 'length',
-		headerName: 'Length',
-		description: 'This column has a value getter and is not sortable.',
-	},
-	{
-		field: 'films',
-		headerName: 'Films',
-		width: 160,
-	},
-]
+import { starshipColumn } from '../shared/Data'
+import { useNavigate } from 'react-router-dom'
+// import { useLocation } from 'react-router-dom'
 
 function StarShips() {
+	const navigate = useNavigate()
 	const [rowData, setRowData] = useState([])
 	const data = useFetch('https://swapi.dev/api/starships')
 	useEffect(() => {
@@ -49,14 +29,16 @@ function StarShips() {
 	}, [data])
 	// console.log(data)
 	return (
-		<DashbordLayout>
+		<AppLayout>
 			<Table
+				tableTitle='Starships'
 				{...{
-					columns,
+					columns: starshipColumn,
 					rows: rowData,
 				}}
+				rowOnClick={(row) => navigate(`/starships/${row.id}`)}
 			/>
-		</DashbordLayout>
+		</AppLayout>
 	)
 }
 

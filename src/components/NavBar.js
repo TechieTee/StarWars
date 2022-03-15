@@ -1,17 +1,24 @@
 import React from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import {
 	NotificationIcon,
 	LineIcon,
 	ProfileIcon,
 	BreadCrumbIcon,
+	Arrow,
 } from '../Images/SvgIcons'
 
 const Index = () => {
 	return (
 		<Navbar bg='light' expand='lg'>
 			<Container fluid>
-				<Navbar.Brand href='#'>Back</Navbar.Brand>
+				<Navbar.Brand href='#'>
+					<Link to={'/'} style={{ textDecoration: 'none', color: '#aaa' }}>
+						<Arrow />
+						Back
+					</Link>
+				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='navbarScroll' />
 				<Navbar.Collapse id='navbarScroll'>
 					<Nav

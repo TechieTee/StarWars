@@ -1,35 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import DashbordLayout from '../components/DashbordLayout'
+import AppLayout from '../components/AppLayout'
 import Table from '../components/Table'
 import useFetch from '../shared/hooks/useFetch'
-
-const columns = [
-	{ field: 'name', headerName: 'Name', width: 130 },
-	{ field: 'classification', headerName: 'Classification', width: 130 },
-	{
-		field: 'eye_colors',
-		headerName: 'Eye Colors',
-		width: 160,
-	},
-	{
-		field: 'hair_colors',
-		headerName: 'Hair Colors',
-        width: 160,
-	},
-	{
-		field: 'average_height',
-		headerName: 'Height',
-        width: 160,
-	},
-	{
-		field: 'created',
-		headerName: 'Created',
-		width: 160,
-	},
-]
+import { speciesColumn } from '../shared/Data'
+import { useNavigate } from 'react-router-dom'
 
 function Species() {
 	const [rowData, setRowData] = useState([])
+	const navigate = useNavigate()
 	const data = useFetch('https://swapi.dev/api/species')
 	useEffect(() => {
 		if (data) {
@@ -59,14 +37,16 @@ function Species() {
 	}, [data])
 	// console.log(data)
 	return (
-		<DashbordLayout>
+		<AppLayout>
 			<Table
+				tableTitle='Species'
 				{...{
-					columns,
+					columns: speciesColumn,
 					rows: rowData,
 				}}
+				rowOnClick={(row) => navigate(`/species/${row.id}`)}
 			/>
-		</DashbordLayout>
+		</AppLayout>
 	)
 }
 

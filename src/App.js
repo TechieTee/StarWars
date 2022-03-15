@@ -1,12 +1,12 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
-import LoginPage from './Pages/LoginPage'
-import Dashboard from './Pages/Dashboard'
 import { AuthGuard } from './components/AuthGuard'
+import Login from './Pages/LoginPage'
+import Dashboard from './Pages/Dashboard'
 import People from './Pages/People'
 import StarShips from './Pages/StarShips'
 import Species from './Pages/Species'
+import DetailsPage from './Pages/DetailsPage'
 
 function App() {
 	return (
@@ -22,10 +22,26 @@ function App() {
 						}
 					/>
 					<Route
+						path='/films/:id'
+						element={
+							<AuthGuard>
+								<DetailsPage />
+							</AuthGuard>
+						}
+					/>
+					<Route
 						path='/people'
 						element={
 							<AuthGuard>
 								<People />
+							</AuthGuard>
+						}
+					/>
+					<Route
+						path='/people/:id'
+						element={
+							<AuthGuard>
+								<DetailsPage />
 							</AuthGuard>
 						}
 					/>
@@ -38,6 +54,14 @@ function App() {
 						}
 					/>
 					<Route
+						path='/starships/:id'
+						element={
+							<AuthGuard>
+								<DetailsPage />
+							</AuthGuard>
+						}
+					/>
+					<Route
 						path='/species'
 						element={
 							<AuthGuard>
@@ -45,7 +69,22 @@ function App() {
 							</AuthGuard>
 						}
 					/>
-					<Route path='/login' element={<LoginPage />} />
+					<Route
+						path='/species/:id'
+						element={
+							<AuthGuard>
+								<DetailsPage />
+							</AuthGuard>
+						}
+					/>
+					<Route
+						path='/login'
+						element={
+							<AuthGuard>
+								<Login />
+							</AuthGuard>
+						}
+					/>
 				</Routes>
 			</BrowserRouter>
 		</div>
