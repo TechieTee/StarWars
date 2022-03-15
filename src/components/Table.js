@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Index = ({ rows, columns, rowOnClick }) => {
+const Index = ({ tableTitle, rows, columns, rowOnClick }) => {
 	const fields = []
 	return (
-		<div style={{ height: 400, width: '100%' }}>
+		<div style={{ height: 400, width: '100%', overflow: 'hidden' }}>
+			<h6 style={{ color: '#aaa' }}>{tableTitle}</h6>
 			{/* <DataGrid
 				rows={rows || []}
 				columns={columns || []}
@@ -66,6 +67,6 @@ const Table = styled.table`
 		padding-bottom: 12px;
 		text-align: left;
 		background-color: #f2f2f2;
-		color: white;
+		color: #7a7a7a;
 	}
 `
