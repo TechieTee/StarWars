@@ -7,7 +7,6 @@ import { GridSmall, CancelIcon, NavItemIcon } from '../Images/SvgIcons'
 
 const SidebarItem = () => {
 	const navItems = [
-		{ name: 'Overview', fill: '<GridSmall/>', path: '/starships' },
 		{ name: 'Starships', fill: '#A9C1FF', path: '/starships' },
 		{ name: 'People', fill: '#FFA9EC', path: '/people' },
 		{ name: 'Species', fill: '#FDFFA9', path: '/species' },
@@ -17,6 +16,13 @@ const SidebarItem = () => {
 			<Img>
 				<img src={Logo} alt='logo' />
 			</Img>
+			<Action>
+				<Button startIcon={<GridSmall />}>
+					<Link to='./'>
+						<ItemName>OverView</ItemName>
+					</Link>
+				</Button>
+			</Action>
 			<Nav>
 				{navItems.map((item) => (
 					<Button
