@@ -6,7 +6,7 @@ export function useLogin() {
 	const [loggedIn, setLoggedIn] = useState(lIn)
 	const [user, setUser] = useState(authUser)
 
-	const logIn = () => {
+	const login = () => {
 		setLoggedIn(true)
 		localStorage.setItem('loggedIn', 'true')
 	}
@@ -25,7 +25,7 @@ export function useLogin() {
 
 	return {
 		loggedIn,
-		logIn,
+		login,
 		user,
 		handleSetUser,
 		logOut,
