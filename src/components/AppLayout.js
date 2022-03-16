@@ -7,8 +7,8 @@ import Logo from '../Images/Logo.png'
 function AppLayout({ login, children }) {
 	return (
 		<Container>
-			{/* <Sidebar style={{ width: `${width}px` }}> */}
-			<Sidebar>
+			
+			<Sidebar style={{ width: login && '350px'  }}>
 				{login ? (
 					<ImgLogo>
 						<img src={Logo} alt='logo' />
@@ -17,9 +17,11 @@ function AppLayout({ login, children }) {
 					<SidebarItem />
 				)}
 			</Sidebar>
-			{/* <Main style={{ width: `calc(100% - ${width}px)`, left: `${width}px` }}> */}
-			<Main>
-				{login ? '' : <NavBar />}
+		
+			<Main
+				style={{ width: login && `calc(100% - 350px)`  }}
+			>
+				{!login && <NavBar />}
 
 				<DashboardWrapper>{children}</DashboardWrapper>
 			</Main>
