@@ -6,7 +6,6 @@ import Table from '../components/Table'
 import useFetch from '../shared/hooks/useFetch'
 import { cardInfo, filmsColumn } from '../shared/Data'
 import { useNavigate } from 'react-router-dom'
-
 const Dashboard = () => {
 	const [rowData, setRowData] = useState([])
 	const navigate = useNavigate()
@@ -36,7 +35,10 @@ const Dashboard = () => {
 			setRowData(filtered)
 		}
 	}, [data])
-
+	function onRowClick(data) {
+		console.log(`You clicked on the row ${data.username} ${data.score}`)
+		alert(`You clicked on the row ${data.username} ${data.score}`)
+	}
 	return (
 		<AppLayout>
 			<CardWrapper>

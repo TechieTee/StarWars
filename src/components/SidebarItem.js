@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '@material-ui/core/Button'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
@@ -18,23 +18,23 @@ const SidebarItem = () => {
 			</Img>
 			<Action>
 				<Button startIcon={<GridSmall />}>
-					<Link to='./'>
+					<Link to={'/dashboard'}>
 						<ItemName>OverView</ItemName>
 					</Link>
 				</Button>
 			</Action>
 			<Nav>
 				{navItems.map((item) => (
-					<Button
-						startIcon={
-							<NavItemIcon fill={item.fill} width='17px' height='16px' />
-						}
-						key={item}
-					>
-						<Link to={item.path}>
+					<Link to={item.path}>
+						<Button
+							startIcon={
+								<NavItemIcon fill={item.fill} width='17px' height='16px' />
+							}
+							key={item}
+						>
 							<ItemName>{item.name}</ItemName>
-						</Link>
-					</Button>
+						</Button>
+					</Link>
 				))}
 			</Nav>
 

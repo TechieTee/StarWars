@@ -14,7 +14,7 @@ const Index = () => {
 		<Navbar bg='light' expand='lg'>
 			<Container fluid>
 				<Navbar.Brand href='#'>
-					<Link to={'/'} style={{ textDecoration: 'none', color: '#aaa' }}>
+					<Link to={'/dashboard'} style={{ textDecoration: 'none', color: '#aaa' }}>
 						<Arrow />
 						Back
 					</Link>
