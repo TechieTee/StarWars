@@ -6,11 +6,12 @@ import profileImg from "../Images/image6.png";
 import useFetch from "../shared/hooks/useFetch";
 import { useLogin } from "../shared/hooks/useLogin";
 
-const Index = () => {
+const SpeciesDetails = () => {
   const location = useLocation();
   const { data, error, isLoading } = useFetch(
     `https://swapi.dev/api${location.pathname}`
   );
+  console.log(data);
   const { loggedIn } = useLogin();
 
   if (!loggedIn)
@@ -25,16 +26,20 @@ const Index = () => {
         <ImageProfile>
           <img src={profileImg} alt="profileImg" />
           <div>
-            <h3>{data?.title}</h3> <p>Director: {data?.director}</p>
-            <p>Producer: {data?.producer}</p>
-            <p>Release Date: {data?.release_date}</p>
+            <h3>{data?.name}</h3>{" "}
+            <p className="text-capitalize">Destination: {data?.designation}</p>
+            <p className="text-capitalize">Language: {data?.language}</p>
+            <p className="text-capitalize">Eye colors: {data?.eye_colors}</p>
+            <p className="text-capitalize">
+              Average Lifespan: {data?.average_lifespan}
+            </p>
           </div>
         </ImageProfile>
       )}
     </AppLayout>
   );
 };
-export default Index;
+export default SpeciesDetails;
 
 const ImageProfile = styled.div`
   width: 750px;

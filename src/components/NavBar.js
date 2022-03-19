@@ -14,7 +14,7 @@ const Index = () => {
 		<Navbar bg='light' expand='lg'>
 			<Container fluid>
 				<Navbar.Brand href='#'>
-					<Link to={'/dashboard'} style={{ textDecoration: 'none', color: '#aaa' }}>
+					<Link to={'/'} style={{ textDecoration: 'none', color: '#aaa' }}>
 						<Arrow />
 						Back
 					</Link>
@@ -26,19 +26,19 @@ const Index = () => {
 						style={{ maxHeight: '100px' }}
 						navbarScroll
 					></Nav>
-					<Nav.Link href='#action1'>
+					<Nav.Link href='' disabled>
 						<NotificationIcon />
 					</Nav.Link>
-					<Nav.Link href='#action2'>
+					<Nav.Link href='' disabled>
 						<LineIcon />
 					</Nav.Link>
-					<Nav.Link href='#' disabled>
+					<Nav.Link href='' disabled>
 						<ProfileIcon />
 					</Nav.Link>
-					<Nav.Link href='#' disabled>
+					<Nav.Link href='' disabled>
 						Fatima Bello
 					</Nav.Link>
-					<Nav.Link href='#' disabled>
+					<Nav.Link href='' disabled>
 						<BreadCrumbIcon />
 					</Nav.Link>
 				</Navbar.Collapse>

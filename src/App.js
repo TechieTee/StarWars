@@ -7,80 +7,83 @@ import People from './Pages/People'
 import StarShips from './Pages/StarShips'
 import Species from './Pages/Species'
 import DetailsPage from './Pages/DetailsPage'
+import NotFound from './Pages/NotFound'
+import SpeciesDetails from './Pages/SpeciesDetails'
+import PeopeleDetails from './Pages/PeopleDetails'
+import StarshipsDetails from './Pages/StarshipsDetails'
 
 function App() {
 	return (
-		<div>
-			<BrowserRouter>
-				<Routes>
-					<Route
-						path='/dashboard'
-						element={
-							<AuthGuard>
-								<Dashboard />
-							</AuthGuard>
-						}
-					/>
-					<Route
-						path='/films/:id'
-						element={
-							<AuthGuard>
-								<DetailsPage />
-							</AuthGuard>
-						}
-					/>
-					<Route
-						path='/people'
-						element={
-							<AuthGuard>
-								<People />
-							</AuthGuard>
-						}
-					/>
-					<Route
-						path='/people/:id'
-						element={
-							<AuthGuard>
-								<DetailsPage />
-							</AuthGuard>
-						}
-					/>
-					<Route
-						path='/starships'
-						element={
-							<AuthGuard>
-								<StarShips />
-							</AuthGuard>
-						}
-					/>
-					<Route
-						path='/starships/:id'
-						element={
-							<AuthGuard>
-								<DetailsPage />
-							</AuthGuard>
-						}
-					/>
-					<Route
-						path='/species'
-						element={
-							<AuthGuard>
-								<Species />
-							</AuthGuard>
-						}
-					/>
-					<Route
-						path='/species/:id'
-						element={
-							<AuthGuard>
-								<DetailsPage />
-							</AuthGuard>
-						}
-					/>
-					<Route path='/' element={<LoginPage />} />
-				</Routes>
-			</BrowserRouter>
-		</div>
+		<BrowserRouter>
+			<Routes>
+				<Route
+					path='/'
+					element={
+						<AuthGuard>
+							<Dashboard />
+						</AuthGuard>
+					}
+				/>
+				<Route
+					path='/films/:id'
+					element={
+						<AuthGuard>
+							<DetailsPage />
+						</AuthGuard>
+					}
+				/>
+				<Route
+					path='/people'
+					element={
+						<AuthGuard>
+							<People />
+						</AuthGuard>
+					}
+				/>
+				<Route
+					path='/people/:id'
+					element={
+						<AuthGuard>
+							<PeopeleDetails />
+						</AuthGuard>
+					}
+				/>
+				<Route
+					path='/starships'
+					element={
+						<AuthGuard>
+							<StarShips />
+						</AuthGuard>
+					}
+				/>
+				<Route
+					path='/starships/:id'
+					element={
+						<AuthGuard>
+							<StarshipsDetails />
+						</AuthGuard>
+					}
+				/>
+				<Route
+					path='/species'
+					element={
+						<AuthGuard>
+							<Species />
+						</AuthGuard>
+					}
+				/>
+				<Route
+					path='/species/:id'
+					element={
+						<AuthGuard>
+							<SpeciesDetails />
+						</AuthGuard>
+					}
+				/>
+				<Route path='/login' element={<LoginPage />} />
+				<Route path='*' element={<NotFound />} />
+			</Routes>
+		</BrowserRouter>
 	)
 }
 

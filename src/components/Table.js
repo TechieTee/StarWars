@@ -4,18 +4,12 @@ import styled from 'styled-components'
 const Index = ({ tableTitle, rows, columns, rowOnClick }) => {
 	const fields = []
 	return (
-		<div style={{ height: 400, width: '100%', overflow: 'hidden' }}>
-			<h6 style={{ color: '#aaa' }}>{tableTitle}</h6>
-			{/* <DataGrid
-				rows={rows || []}
-				columns={columns || []}
-				pageSize={5}
-				rowsPerPageOptions={[5]}
-				checkboxSelection
-			/> */}
+		<Wrapper>
+			<h6>{tableTitle}</h6>
 			<Table>
 				<thead>
 					<tr>
+						<th></th>
 						{columns.map((column, index) => {
 							fields.push(column.field)
 							return <th key={index}>{column?.headerName}</th>
@@ -23,18 +17,31 @@ const Index = ({ tableTitle, rows, columns, rowOnClick }) => {
 					</tr>
 				</thead>
 				<tbody>
-					{rows.map((row, index) => {
-						return (
-							<tr onClick={() => rowOnClick(row)}>
-								{fields.map((field, index) => (
-									<td key={index}>{row[field]}</td>
-								))}
-							</tr>
-						)
-					})}
+					{rows.length > 0 &&
+						rows.map((row, index) => {
+							return (
+								<tr key={index} onClick={() => rowOnClick(row)}>
+									<td>
+										<form>
+											<input type='checkbox' />
+										</form>
+									</td>
+									{fields.map((field, index) => (
+										<td key={index}>{row[field]}</td>
+									))}
+								</tr>
+							)
+						})}
 				</tbody>
 			</Table>
-		</div>
+			<div>
+				{rows.length < 1 && (
+					<p className='text-center w-100 pb-3'>
+						No <span className='text-lowercase'>{tableTitle}</span>
+					</p>
+				)}
+			</div>
+		</Wrapper>
 	)
 }
 export default Index
@@ -43,22 +50,24 @@ const Table = styled.table`
 	font-family: Arial, Helvetica, sans-serif;
 	border-collapse: collapse;
 	width: 100%;
+	margin-bottom: 2rem;
 	tr {
+		cursor: pointer;
 		&:hover {
 			background-color: #ddd;
 			cursor: arrow;
-			&:hover {
-				background-color: #ddd;
-				cursor: arrow;
-			}
 		}
-	}
-	tr:nth-child(even) {
-		background-color: #f2f2f2;
+		&:nth-child(even) {
+			background-color: #f2f2f2;
+		}
 	}
 	td {
 		border: 1px solid #ddd;
 		padding: 8px;
+		&:last-of-type {
+			max-width: 300px;
+			overflow-x: auto;
+		}
 	}
 	th {
 		border: 1px solid #ddd;
@@ -68,5 +77,11 @@ const Table = styled.table`
 		text-align: left;
 		background-color: #f2f2f2;
 		color: #7a7a7a;
+	}
+`
+const Wrapper = styled.div`
+	width: 100%;
+	h6 {
+		color: #aaa;
 	}
 `

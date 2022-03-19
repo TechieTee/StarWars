@@ -24,8 +24,8 @@ const Card = styled.div`
 	background: #ffffff;
 	box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 	border-radius: 10px;
-	width: 240px;
-	height: 155px;
+	width: 100%;
+	min-height: 155px;
 	padding: 15px 20px;
 `
 const Title = styled.div`

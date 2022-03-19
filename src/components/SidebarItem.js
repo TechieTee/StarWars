@@ -1,59 +1,60 @@
-import React, { useState } from 'react'
-import Button from '@material-ui/core/Button'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Logo from '../Images/Logo.png'
 import { GridSmall, CancelIcon, NavItemIcon } from '../Images/SvgIcons'
+import { useLogin } from '../shared/hooks/useLogin'
+
+const navItems = [
+	{ name: 'Starships', fill: '#A9C1FF', path: '/starships' },
+	{ name: 'People', fill: '#FFA9EC', path: '/people' },
+	{ name: 'Species', fill: '#FDFFA9', path: '/species' },
+]
 
 const SidebarItem = () => {
-	const navItems = [
-		{ name: 'Starships', fill: '#A9C1FF', path: '/starships' },
-		{ name: 'People', fill: '#FFA9EC', path: '/people' },
-		{ name: 'Species', fill: '#FDFFA9', path: '/species' },
-	]
+	const { logOut } = useLogin()
 	return (
-		<>
+		<div className='px-5 h-100 position-relative'>
 			<Img>
 				<img src={Logo} alt='logo' />
 			</Img>
-			<Action>
-				<Button startIcon={<GridSmall />}>
-					<Link to={'/dashboard'}>
+			<div>
+				<Action>
+					<Link to={'/'} className='text-decoration-none'>
+						<span className='me-3'>
+							<GridSmall />
+						</span>
 						<ItemName>OverView</ItemName>
 					</Link>
-				</Button>
-			</Action>
-			<Nav>
-				{navItems.map((item) => (
-					<Link to={item.path}>
-						<Button
-							startIcon={
-								<NavItemIcon fill={item.fill} width='17px' height='16px' />
-							}
-							key={item}
+				</Action>
+				<Nav className='mt-5'>
+					{navItems.map((item, index) => (
+						<Link
+							key={index}
+							to={item.path}
+							className='d-block h-auto p-0 text-decoration-none'
 						>
+							<span className='me-3'>
+								<NavItemIcon fill={item.fill} width='17px' height='16px' />
+							</span>
 							<ItemName>{item.name}</ItemName>
-						</Button>
-					</Link>
-				))}
-			</Nav>
-
+						</Link>
+					))}
+				</Nav>
+			</div>
 			<LogOut>
-				<Button startIcon={<CancelIcon />}>
+				<button onClick={logOut}>
+					<span className='me-3'>
+						<CancelIcon />
+					</span>
 					<ItemName>Log Out</ItemName>
-				</Button>
+				</button>
 			</LogOut>
-		</>
+		</div>
 	)
 }
 const ItemName = styled.span`
-	position: absolute;
-	width: 85px;
-	height: 24px;
-	left: 50px;
-	top: -22px;
 	color: #fff;
-
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 600;
@@ -62,56 +63,32 @@ const ItemName = styled.span`
 `
 const Img = styled.div`
 	width: 130px;
-	margin: auto;
+	margin-inline: auto;
 	margin-top: 35px;
-
 	img {
-		height: 100%;
 		width: 100%;
 	}
 `
 
 const Action = styled.div`
-	position: absolute;
-	width: 232px;
-	height: 48px;
-	left: 50px;
-	top: 149px;
+	margin-top: 100px;
 `
-const Nav = styled.div`
-	position: absolute;
-	width: 85px;
-	height: 24px;
-	left: 50px;
-	top: 250px;
-	color: #fff;
 
+const Nav = styled.div`
+	color: #fff;
 	font-family: 'Inter';
-	font-style: normal;
 	font-weight: 600;
 	font-size: 16px;
-	line-height: 75px;
 `
+
 const LogOut = styled.div`
 	position: absolute;
-	width: 232px;
-	height: 48px;
-	left: 50px;
-	top: 800px;
-`
-
-export const ImgLogo = styled.div`
-	width: 245px;
-	margin: auto;
-	margin-top: 335px;
-
-	left: 23px;
-
-	top: 330px;
-
-	img {
-		height: 100%;
-		width: 100%;
+	bottom: 2rem;
+	button {
+		background: none;
+		padding: 0;
+		border: none;
+		outline: none;
 	}
 `
 

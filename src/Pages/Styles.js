@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 // CARD WRAPPER
-export const CardWrapper = styled.div`
-	display: grid;
-	grid-template-columns: 25% 25% 25% 25%;
-	margin-bottom: 150px;
-`
+// export const CardWrapper = styled.div`
+// 	display: grid;
+// 	grid-template-columns: 25% 25% 25% 25%;
+// 	margin-bottom: 150px;
+// `
 
 
 
