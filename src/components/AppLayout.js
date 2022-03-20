@@ -45,7 +45,7 @@ const Main = styled.main`
   transition: all 0.3s ease;
   height: 100vh;
   width: calc(100% - 45%);
-  margin-left: 270px;
+  margin-left: 45%;
   overflow: auto;
 `;
 export const ImgLogo = styled.div`
