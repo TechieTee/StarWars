@@ -1,15 +1,14 @@
-import styled from "styled-components";
+
 import React from "react";
+import { Notfound } from './Styles'
 
 function NotFound() {
   return (
-    <Div className="d-flex justify-content-center align-items-center h-100">
+    <Notfound className="d-flex justify-content-center align-items-center h-100">
       <h2>404: Page not found</h2>
-    </Div>
+    </Notfound>
   );
 }
-const Div = styled.div`
-  min-height: 100vh;
-`
+
 
 export default NotFound;

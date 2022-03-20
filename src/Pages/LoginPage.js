@@ -1,11 +1,11 @@
 import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { FormWrapper } from "./Styles";
+import { FormWrapper, SubmitBtn } from "./Styles";
 import { useLogin } from "../shared/hooks/useLogin";
 import { useForm } from "react-hook-form";
 import LoginLayout from "../components/LoginLayout";
 import CustomInput from "../components/CustomInput";
-import styled from "styled-components";
+
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -66,13 +66,5 @@ const LoginPage = () => {
     </LoginLayout>
   );
 };
-const SubmitBtn = styled.button`
-  height: 48px;
-  background: #0a74dc;
-  border-radius: 6px;
-  color: white;
-  border: none;
-  outline: none;
-  width: 100%;
-`;
+
 export default LoginPage;

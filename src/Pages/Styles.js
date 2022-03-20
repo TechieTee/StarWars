@@ -51,6 +51,7 @@ export const FormWrapper = styled.div`
 
     span {
       color: #c5c5c5;
+      display:inline-block;
     }
   }
 `;
@@ -84,3 +85,16 @@ export const ImageProfile = styled.div`
     }
   }
 `;
+export const SubmitBtn = styled.button`
+	height: 48px;
+	background: #0a74dc;
+	border-radius: 6px;
+	color: white;
+	border: none;
+	outline: none;
+	width: 100%;
+`
+
+export const Notfound = styled.div`
+	min-height: 100vh;
+`
