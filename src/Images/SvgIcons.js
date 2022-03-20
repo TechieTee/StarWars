@@ -75,8 +75,8 @@ export function BreadCrumbIcon() {
 export function NavItemIcon({ fill, width, height }) {
 	return (
 		<svg
-			width='22'
-			height='25'
+			width={width ? width : '22'}
+			height={height ? height : '22'}
 			viewBox='0 0 17 16'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'

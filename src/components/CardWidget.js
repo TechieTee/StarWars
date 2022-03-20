@@ -7,8 +7,8 @@ const Index = ({ cardTitle, fill, number, desc }) => {
     <Card>
       <Title>
         <H3>{cardTitle}</H3>{" "}
-        <span>
-          <NavItemIcon fill={fill} width="17px" height="16px" />
+        <span style={{width:"35px", height:"35px"}}>
+          <NavItemIcon fill={fill} width="100%" height="100%" />
         </span>{" "}
       </Title>
       <Details>
