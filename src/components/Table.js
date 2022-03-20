@@ -10,6 +10,7 @@ const Index = ({ tableTitle, rows, columns, rowOnClick }) => {
 				<thead>
 					<tr>
 						<th>
+							{' '}
 							<form>
 								<input type='checkbox' />
 							</form>
@@ -58,6 +59,7 @@ const Table = styled.table`
 	border: 1px solid #ddd;
 	tr {
 		cursor: pointer;
+		padding: 15px;
 		&:hover {
 			background-color: #ddd;
 			cursor: arrow;
@@ -67,20 +69,20 @@ const Table = styled.table`
 		}
 	}
 	td {
-		border-bottom: 1px solid #ddd;
 		border-top: 1px solid #ddd;
-		padding: 20px;
-		
+		border-bottom: 1px solid #ddd;
+		padding: 15px;
 		&:last-of-type {
 			max-width: 300px;
-			overflow-x: auto;
+			overflow-x: scroll;
+			white-space: nowrap;
+			
 		}
 	}
 	th {
-		border-bottom: 1px solid #ddd;
 		border-top: 1px solid #ddd;
-
-		padding: 20px;
+		border-bottom: 1px solid #ddd;
+		padding: 15px;
 		padding-top: 12px;
 		padding-bottom: 12px;
 		text-align: left;
@@ -92,6 +94,6 @@ const Wrapper = styled.div`
 	width: 100%;
 	h6 {
 		color: #aaa;
-		margin-bottom: 30px;
+		margin: 10px 0px;
 	}
 `
