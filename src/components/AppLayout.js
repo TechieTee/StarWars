@@ -38,7 +38,7 @@ const Sidebar = styled.div`
   transition: all 0.3s ease;
   width: 45%;
 @media (min-device-width: 1000px) {
-    width: 30%;
+    width: 0%;
   }
   background: #031434;
 `;
@@ -50,8 +50,8 @@ const Main = styled.main`
   width: calc(100% - 45%);
   margin-left: 45%;
 @media (min-device-width: 1000px) {
-    width: calc(100% - 30%);
-    margin-left: 30%;
+    width: calc(100% - 0%);
+    margin-left: 0%;
   }
   overflow: auto;
 `;
