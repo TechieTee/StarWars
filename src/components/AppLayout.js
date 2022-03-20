@@ -38,21 +38,20 @@ const Sidebar = styled.div`
   transition: all 0.3s ease;
   width: 45%;
 @media (min-device-width: 1000px) {
-    width: 0%;
+    width: 270px;
   }
   background: #031434;
 `;
 const Main = styled.main`
   position: fixed;
-  background: red;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   height: 100vh;
   width: calc(100% - 45%);
   margin-left: 45%;
 @media (min-device-width: 1000px) {
-    width: calc(100% - 0%);
-    margin-left: 0%;
+    width: calc(100% - 270px);
+    margin-left: 270px;
   }
   overflow: auto;
 `;
