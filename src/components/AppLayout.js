@@ -36,7 +36,7 @@ const Sidebar = styled.div`
   top: 0;
   left: 0;
   transition: all 0.3s ease;
-  width: 270px;
+  width: 45%;
   background: #031434;
 `;
 const Main = styled.main`
@@ -44,7 +44,7 @@ const Main = styled.main`
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   height: 100vh;
-  width: calc(100% - 270px);
+  width: calc(100% - 45%);
   margin-left: 270px;
   overflow: auto;
 `;
