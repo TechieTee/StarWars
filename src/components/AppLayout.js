@@ -44,6 +44,7 @@ const Sidebar = styled.div`
 `;
 const Main = styled.main`
   position: fixed;
+  background: red;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   height: 100vh;
