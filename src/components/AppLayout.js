@@ -36,7 +36,7 @@ const Sidebar = styled.div`
   top: 0;
   left: 0;
   transition: all 0.3s ease;
-  width: 45%;
+  width: 40%;
   background: #031434;
 `;
 const Main = styled.main`
@@ -44,8 +44,8 @@ const Main = styled.main`
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   height: 100vh;
-  width: calc(100% - 45%);
-  margin-left: 45%;
+  width: calc(100% - 40%);
+  margin-left: 40%;
   overflow: auto;
 `;
 export const ImgLogo = styled.div`
