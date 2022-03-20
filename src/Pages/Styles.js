@@ -6,8 +6,6 @@ import styled from 'styled-components'
 // 	margin-bottom: 150px;
 // `
 
-
-
 export const FormWrapper = styled.div`
 	margin: auto;
 	margin-top: 155px;
@@ -57,11 +55,44 @@ export const FormWrapper = styled.div`
 		color: #303b54;
 		background: #fff;
 		padding: 2px;
-		margin-top: 100px;
+		margin: 90px 0 10px 0;
 		text-decoration-line: underline;
 
 		span {
 			color: #c5c5c5;
+			text-decoration: none;
+			display: inline-block;
+			margin: 0 3px;
+		}
+	}
+`
+
+export const ImageProfile = styled.div`
+	display: flex;
+	img {
+		max-width: 318px;
+		margin-right: 28px;
+	}
+
+	div {
+		margin: auto;
+		width: 90%;
+		height: 90%;
+
+		h3 {
+			font-family: 'Inter';
+			font-style: normal;
+			font-weight: 700;
+			font-size: 48px;
+			line-height: 90px;
+			color: #000000;
+		}
+		p {
+			font-family: 'Inter';
+			font-style: normal;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 24px;
 		}
 	}
 `

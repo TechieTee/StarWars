@@ -9,7 +9,11 @@ const Index = ({ tableTitle, rows, columns, rowOnClick }) => {
 			<Table>
 				<thead>
 					<tr>
-						<th></th>
+						<th>
+							<form>
+								<input type='checkbox' />
+							</form>
+						</th>
 						{columns.map((column, index) => {
 							fields.push(column.field)
 							return <th key={index}>{column?.headerName}</th>
@@ -51,6 +55,7 @@ const Table = styled.table`
 	border-collapse: collapse;
 	width: 100%;
 	margin-bottom: 2rem;
+	border: 1px solid #ddd;
 	tr {
 		cursor: pointer;
 		&:hover {
@@ -62,16 +67,20 @@ const Table = styled.table`
 		}
 	}
 	td {
-		border: 1px solid #ddd;
-		padding: 8px;
+		border-bottom: 1px solid #ddd;
+		border-top: 1px solid #ddd;
+		padding: 20px;
+		
 		&:last-of-type {
 			max-width: 300px;
 			overflow-x: auto;
 		}
 	}
 	th {
-		border: 1px solid #ddd;
-		padding: 8px;
+		border-bottom: 1px solid #ddd;
+		border-top: 1px solid #ddd;
+
+		padding: 20px;
 		padding-top: 12px;
 		padding-bottom: 12px;
 		text-align: left;
@@ -83,5 +92,6 @@ const Wrapper = styled.div`
 	width: 100%;
 	h6 {
 		color: #aaa;
+		margin-bottom: 30px;
 	}
 `

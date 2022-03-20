@@ -11,7 +11,11 @@ import {
 
 const Index = () => {
 	return (
-		<Navbar bg='light' expand='lg'>
+		<Navbar
+			bg='light'
+			expand='lg'
+			style={{ boxShadow: '0px 2px 6px #cecece4d' }}
+		>
 			<Container fluid>
 				<Navbar.Brand href='#'>
 					<Link to={'/'} style={{ textDecoration: 'none', color: '#aaa' }}>

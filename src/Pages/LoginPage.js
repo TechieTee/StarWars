@@ -1,92 +1,80 @@
-import React from "react";
-
-import { Navigate, useNavigate } from "react-router-dom";
-import { FormWrapper } from "./Styles";
-import { useLogin } from "../shared/hooks/useLogin";
-import AppLayout from "../components/AppLayout";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import { useForm, Controller } from "react-hook-form";
+import React from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
+import { FormWrapper } from './Styles'
+import { useLogin } from '../shared/hooks/useLogin'
+import { useForm } from 'react-hook-form'
+import LoginLayout from '../components/LoginLayout'
+import CustomInput from '../components/CustomInput'
+import styled from 'styled-components'
 
 const LoginPage = () => {
-  const navigate = useNavigate();
-  const { login, loggedIn } = useLogin();
-  const { control, handleSubmit,  } = useForm();
+	const navigate = useNavigate()
+	const { login, loggedIn } = useLogin()
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({
+		defaultValues: { email: '', password: '' },
+	})
 
-  const onSubmit = (data) => {
-    login();
-    navigate("/");
-  };
-  const style = { width: "100%", margin: "20px 0", padding: "4px 0" };
+	const onSubmit = (data) => {
+		login()
+		navigate('/')
+	}
 
-  if (loggedIn) return <Navigate to="/" />;
-  return (
-    <AppLayout login={true}>
-      <FormWrapper index>
-        <h3>Login</h3>
-        <h4>Kindly enter your details to log in</h4>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Controller
-            name="email"
-            control={control}
-            render={({ field: { onChange, value }, fieldState: { error } }) => (
-              <TextField
-                style={style}
-                label="Email Address"
-                variant="outlined"
-                value={value}
-                defaultValue=""
-                onChange={onChange}
-                error={!!error}
-                helperText={error ? error.message : null}
-                type="email"
-              />
-            )}
-            rules={{
-              required: "Email is required",
-              pattern: {
-                value:
-                  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: "Please enter a valid email",
-              },
-            }}
-          />
+	if (loggedIn) return <Navigate to='/' />
+	return (
+		<LoginLayout>
+			<FormWrapper>
+				<h3>Login</h3>
+				<h4>Kindly enter your details to log in</h4>
+				<form onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
+					<CustomInput
+						type='email'
+						label='Email Address'
+						id='email'
+						name='email'
+						register={register}
+						validation={{
+							required: true,
+							pattern:
+								/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+						}}
+						errors={errors}
+					/>
+					<CustomInput
+						type='password'
+						label='Password'
+						id='password'
+						name='password'
+						register={register}
+						validation={{
+							required: true,
+							pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+						}}
+						errors={errors}
+					/>
 
-          <Controller
-            name="password"
-            control={control}
-            render={({ field: { onChange, value }, fieldState: { error } }) => (
-              <TextField
-                style={style}
-                label="Password"
-                variant="outlined"
-                value={value}
-                onChange={onChange}
-                defaultValue=""
-                error={!!error}
-                helperText={error ? error.message : null}
-                type="password"
-              />
-            )}
-            rules={{ required: "Password required" }}
-          />
-
-          <Button
-            type="submit"
-            variant="contained"
-            color={"primary"}
-            style={style}
-          >
-            Log In
-          </Button>
-          <h5>forgot your password?</h5>
-        </form>
-        <h6>
-          Privacy Policy <span>and</span> Terms of services
-        </h6>
-      </FormWrapper>
-    </AppLayout>
-  );
-};
-
-export default LoginPage;
+					<SubmitBtn type='submit' className='mb-4'>
+						Log In
+					</SubmitBtn>
+					<h5>forgot your password?</h5>
+				</form>
+				<h6>
+					Privacy Policy <span>and</span> Terms of services
+				</h6>
+			</FormWrapper>
+		</LoginLayout>
+	)
+}
+const SubmitBtn = styled.button`
+	height: 48px;
+	background: #0a74dc;
+	border-radius: 6px;
+	color: white;
+	border: none;
+	outline: none;
+	width: 100%;
+`
+export default LoginPage

@@ -2,24 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import NavBar from './NavBar'
 import SidebarItem from './SidebarItem'
-import Logo from '../Images/Logo.png'
 
 function AppLayout({ login, children }) {
 	return (
 		<Container>
-			<Sidebar style={{ width: login && '350px' }}>
-				{login ? (
-					<ImgLogo>
-						<img src={Logo} alt='logo' />
-					</ImgLogo>
-				) : (
-					<SidebarItem />
-				)}
+			<Sidebar>
+				<SidebarItem />
 			</Sidebar>
-
-			<Main style={{ width: login && `calc(100% - 350px)` }}>
-				{!login && <NavBar />}
-
+			<Main>
+				<NavBar />
 				<DashboardWrapper>{children}</DashboardWrapper>
 			</Main>
 		</Container>
@@ -61,11 +52,8 @@ export const ImgLogo = styled.div`
 	width: 245px;
 	margin: auto;
 	margin-top: 335px;
-
 	left: 23px;
-
 	top: 330px;
-
 	img {
 		height: 100%;
 		width: 100%;

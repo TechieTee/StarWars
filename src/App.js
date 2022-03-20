@@ -6,11 +6,11 @@ import Dashboard from './Pages/Dashboard'
 import People from './Pages/People'
 import StarShips from './Pages/StarShips'
 import Species from './Pages/Species'
-import DetailsPage from './Pages/DetailsPage'
 import NotFound from './Pages/NotFound'
 import SpeciesDetails from './Pages/SpeciesDetails'
 import PeopeleDetails from './Pages/PeopleDetails'
 import StarshipsDetails from './Pages/StarshipsDetails'
+import FilmsDetails from './Pages/FilmsDetails'
 
 function App() {
 	return (
@@ -28,7 +28,7 @@ function App() {
 					path='/films/:id'
 					element={
 						<AuthGuard>
-							<DetailsPage />
+							<FilmsDetails />
 						</AuthGuard>
 					}
 				/>

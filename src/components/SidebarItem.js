@@ -1,51 +1,50 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Logo from '../Images/Logo.png'
-import { GridSmall, CancelIcon, NavItemIcon } from '../Images/SvgIcons'
+import { GridSmall, LogoutIcon, NavItemIcon } from '../Images/SvgIcons'
 import { useLogin } from '../shared/hooks/useLogin'
+import NavLink from './NavLink'
 
 const navItems = [
-	{ name: 'Starships', fill: '#A9C1FF', path: '/starships' },
-	{ name: 'People', fill: '#FFA9EC', path: '/people' },
-	{ name: 'Species', fill: '#FDFFA9', path: '/species' },
+	{ name: 'Starships', fill: '#A9C1FF', path: '/starships', sub: 'starships' },
+	{ name: 'People', fill: '#FFA9EC', path: '/people', sub: 'people' },
+	{ name: 'Species', fill: '#FDFFA9', path: '/species', sub: 'species' },
 ]
 
 const SidebarItem = () => {
 	const { logOut } = useLogin()
 	return (
-		<div className='px-5 h-100 position-relative'>
+		<div className='px-3 h-100 position-relative'>
 			<Img>
 				<img src={Logo} alt='logo' />
 			</Img>
 			<div>
 				<Action>
-					<Link to={'/'} className='text-decoration-none'>
-						<span className='me-3'>
-							<GridSmall />
-						</span>
-						<ItemName>OverView</ItemName>
-					</Link>
+					<NavLink
+						sub='films'
+						to={'/'}
+						icon={() => <GridSmall />}
+						text={'OverView'}
+					/>
 				</Action>
 				<Nav className='mt-5'>
 					{navItems.map((item, index) => (
-						<Link
+						<NavLink
 							key={index}
-							to={item.path}
-							className='d-block h-auto p-0 text-decoration-none'
-						>
-							<span className='me-3'>
+							sub={item.sub}
+							icon={() => (
 								<NavItemIcon fill={item.fill} width='17px' height='16px' />
-							</span>
-							<ItemName>{item.name}</ItemName>
-						</Link>
+							)}
+							text={item.name}
+							to={item.path}
+						/>
 					))}
 				</Nav>
 			</div>
 			<LogOut>
 				<button onClick={logOut}>
 					<span className='me-3'>
-						<CancelIcon />
+						<LogoutIcon />
 					</span>
 					<ItemName>Log Out</ItemName>
 				</button>
@@ -71,7 +70,7 @@ const Img = styled.div`
 `
 
 const Action = styled.div`
-	margin-top: 100px;
+	margin-top: 50px;
 `
 
 const Nav = styled.div`
@@ -83,12 +82,15 @@ const Nav = styled.div`
 
 const LogOut = styled.div`
 	position: absolute;
-	bottom: 2rem;
+	bottom: 4rem;
 	button {
 		background: none;
 		padding: 0;
 		border: none;
 		outline: none;
+		height: 48px;
+		width: 100%;
+		padding: 0 2rem;
 	}
 `
 
