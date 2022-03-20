@@ -36,7 +36,10 @@ const Sidebar = styled.div`
   top: 0;
   left: 0;
   transition: all 0.3s ease;
-  width: 40%;
+  width: 45%;
+@media (min-device-width: 1000px) {
+    width: 270px;
+  }
   background: #031434;
 `;
 const Main = styled.main`
@@ -44,8 +47,12 @@ const Main = styled.main`
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   height: 100vh;
-  width: calc(100% - 40%);
-  margin-left: 40%;
+  width: calc(100% - 45%);
+  margin-left: 45%;
+@media (min-device-width: 1000px) {
+    width: calc(100% - 270px);
+    margin-left: 270px;
+  }
   overflow: auto;
 `;
 export const ImgLogo = styled.div`
