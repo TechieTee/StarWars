@@ -1,6 +1,6 @@
 
 
-#[Star Wars App](https://star-wars001.netlify.app/login) Hosted on Netlify
+# [Star Wars App](https://star-wars001.netlify.app/login) Hosted on Netlify
 # Login Credentials
 ## Email: mailtomodupe@gmail.com
 ## Password: teemah658 
